@@ -2,11 +2,17 @@ FROM ubuntu:18.04
 
 ENV DEBIAN_FRONTEND noninteractive
 
-RUN apt-get update && apt-get install -y ruby2.5 ruby2.5-dev graphviz \
-libxpm4 libxrender1 libgtk2.0-0 libnss3 libgconf-2-4 libpango1.0-0 libxss1 \
-libxtst6 fonts-liberation libappindicator1 xdg-utils gtk2-engines-pixbuf \
-xfonts-cyrillic xfonts-100dpi xfonts-75dpi xfonts-base xfonts-scalable imagemagick \
-x11-apps firefox nodejs locales --no-install-recommends && rm -rf /var/lib/apt/lists/*
+# Installing ruby
+RUN apt-get update && apt-get install -y ruby ruby-dev graphviz nodejs \
+  build-essential patch ruby-dev zlib1g-dev liblzma-dev git libpq-dev \
+  locales --no-install-recommends && rm -rf /var/lib/apt/lists/*
+
+# Installing firefox for Selenium / Capybara
+RUN apt-get update && apt-get install -y \
+  libxpm4 libxrender1 libgtk2.0-0 libnss3 libgconf-2-4 libpango1.0-0 libxss1 \
+  libxtst6 fonts-liberation libappindicator1 xdg-utils gtk2-engines-pixbuf \
+  xfonts-cyrillic xfonts-100dpi xfonts-75dpi xfonts-base xfonts-scalable imagemagick \
+  x11-apps firefox --no-install-recommends && rm -rf /var/lib/apt/lists/*
 
 RUN gem install bundler -v '1.17.3'
 
