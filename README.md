@@ -1,4 +1,4 @@
-# docker-ci-rails
+# Ubuntu-based docker image for Ruby on Rails testing in CI
 Docker image to plug in Gitlab CI for testing rails apps
 
 The image is located at https://hub.docker.com/r/simplicity/ubuntu-ci-rails/
