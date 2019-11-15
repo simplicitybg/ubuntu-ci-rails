@@ -50,6 +50,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends\
     libxslt-dev \
     libyaml-dev \
     make \
+    openssh-client \
     patch \
     tzdata \
     unzip \
