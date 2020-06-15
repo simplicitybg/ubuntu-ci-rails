@@ -67,6 +67,16 @@ RUN apt-get update && apt-get install -y \
 
 RUN gem install bundler -v '1.17.3'
 
+# For the most optimal install we download the yarn package directly from 
+# github and install it. Installing yarn as recommended by
+# https://yarnpkg.com/getting-started/install requires installing libssl1.0-dev
+# to install npm, which conflicts with libcurl4-openssl-dev and results in the 
+# installation of a number of additional packages
+# Installing it using https://classic.yarnpkg.com/en/docs/install#debian-stable
+# also requires the installation of gpgv/gnupg2
+ADD https://github.com/yarnpkg/releases/raw/gh-pages/debian/pool/main/y/yarn/yarn_1.22.4_all.deb /yarn_1.22.4_all.deb 
+RUN dpkg -i /yarn_1.22.4_all.deb
+
 ## Set LOCALE to UTF8
 #
 RUN echo "en_US.UTF-8 UTF-8" > /etc/locale.gen && \
