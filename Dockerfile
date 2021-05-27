@@ -65,8 +65,7 @@ RUN apt-get update && apt-get install -y \
   xfonts-cyrillic xfonts-100dpi xfonts-75dpi xfonts-base xfonts-scalable imagemagick \
   x11-apps firefox firefox-geckodriver --no-install-recommends && rm -rf /var/lib/apt/lists/*
 
-RUN gem install bundler
-RUN gem install bundler -v '1.17.3'
+RUN gem install bundler && gem install bundler -v '1.17.3'
 
 # For the most optimal install we download the yarn package directly from 
 # github and install it. Installing yarn as recommended by
