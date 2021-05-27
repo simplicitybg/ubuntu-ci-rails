@@ -65,6 +65,7 @@ RUN apt-get update && apt-get install -y \
   xfonts-cyrillic xfonts-100dpi xfonts-75dpi xfonts-base xfonts-scalable imagemagick \
   x11-apps firefox firefox-geckodriver --no-install-recommends && rm -rf /var/lib/apt/lists/*
 
+RUN gem install bundler
 RUN gem install bundler -v '1.17.3'
 
 # For the most optimal install we download the yarn package directly from 
@@ -74,8 +75,8 @@ RUN gem install bundler -v '1.17.3'
 # installation of a number of additional packages
 # Installing it using https://classic.yarnpkg.com/en/docs/install#debian-stable
 # also requires the installation of gpgv/gnupg2
-ADD https://github.com/yarnpkg/releases/raw/gh-pages/debian/pool/main/y/yarn/yarn_1.22.4_all.deb /yarn_1.22.4_all.deb 
-RUN dpkg -i /yarn_1.22.4_all.deb
+ADD https://github.com/yarnpkg/releases/raw/gh-pages/debian/pool/main/y/yarn/yarn_1.22.5_all.deb /yarn_1.22.5_all.deb 
+RUN dpkg -i /yarn_1.22.5_all.deb
 
 ## Set LOCALE to UTF8
 #
