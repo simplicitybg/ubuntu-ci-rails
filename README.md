@@ -14,5 +14,5 @@ Or in your ```.gitlab-ci.yml``` file:
 
 ## Building & Pushing
 
-    docker build -t REPO/ubuntu-ci-rails:ruby-VERSION-firefox-VERSION
-    docker push REPO/ubuntu-ci-rails:ruby-VERSION-firefox-VERSION
+    docker build -t simplicity/ubuntu-ci-rails:20.04 .
+    docker push simplicity/ubuntu-ci-rails:20.04
