@@ -16,6 +16,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends\
     automake \
     bison \
     bzip2 \
+    cmake \
     dpkg-dev \
     file \
     g++ \
@@ -52,6 +53,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends\
     make \
     openssh-client \
     patch \
+    pkg-config \
     tzdata \
     unzip \
     xz-utils \
