@@ -78,6 +78,7 @@ RUN gem install bundler && gem install bundler -v '1.17.3'
 # also requires the installation of gpgv/gnupg2
 ADD https://github.com/yarnpkg/releases/raw/gh-pages/debian/pool/main/y/yarn/yarn_1.22.5_all.deb /yarn_1.22.5_all.deb 
 RUN dpkg -i /yarn_1.22.5_all.deb
+RUN rm /yarn_1.22.5_all.deb
 
 ## Set LOCALE to UTF8
 #
