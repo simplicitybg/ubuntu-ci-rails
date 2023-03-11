@@ -14,5 +14,5 @@ Or in your ```.gitlab-ci.yml``` file:
 
 ## Building & Pushing
 
-    docker build -t simplicity/ubuntu-ci-rails:latest .
-    docker push simplicity/ubuntu-ci-rails:latest
+    docker build -t simplicity/ubuntu-ci-rails:22.04 .
+    docker push simplicity/ubuntu-ci-rails:22.04
