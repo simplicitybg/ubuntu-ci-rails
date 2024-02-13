@@ -22,6 +22,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends\
     g++ \
     gcc \
     git \
+    gpg-agent \
     imagemagick \
     libbz2-dev \
     libc6-dev \
@@ -54,18 +55,25 @@ RUN apt-get update && apt-get install -y --no-install-recommends\
     openssh-client \
     patch \
     pkg-config \
+    software-properties-common \
     tzdata \
     unzip \
+    wkhtmltopdf \
     xz-utils \
     zlib1g-dev \
     locales  && rm -rf /var/lib/apt/lists/*
+
+# Install Mozilla Team PPA
+RUN add-apt-repository ppa:mozillateam/ppa
 
 # Installing firefox for Selenium / Capybara
 RUN apt-get update && apt-get install -y \
   libxpm4 libxrender1 libgtk2.0-0 libnss3 libgconf-2-4 libpango1.0-0 libxss1 \
   libxtst6 fonts-liberation libappindicator1 xdg-utils gtk2-engines-pixbuf \
   xfonts-cyrillic xfonts-100dpi xfonts-75dpi xfonts-base xfonts-scalable imagemagick \
-  x11-apps firefox --no-install-recommends && rm -rf /var/lib/apt/lists/*
+  x11-apps firefox-esr firefox-esr-geckodriver --no-install-recommends
+
+RUN apt-get remove --purge -y gpg-agent software-properties-common && apt-get autoremove --purge -y && rm -rf /var/lib/apt/lists/*
 
 RUN gem install bundler && gem install bundler -v '1.17.3'
 
