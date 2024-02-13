@@ -14,5 +14,11 @@ Or in your ```.gitlab-ci.yml``` file:
 
 ## Building & Pushing
 
-    docker build -t simplicity/ubuntu-ci-rails:22.04 .
+    docker build -t git.int.simplicity.bg:5050/docker/ubuntu-ci-rails:22.04 .
+    docker push git.int.simplicity.bg:5050/docker/ubuntu-ci-rails:22.04
+
+    # In the future
+    docker build --platform linux/amd64,linux/arm64 -t simplicity/ubuntu-ci-rails:22.04 -t git.int.simplicity.bg:5050/docker/ubuntu-ci-rails:22.04 .
+
+    # Pushing to docker.io
     docker push simplicity/ubuntu-ci-rails:22.04
